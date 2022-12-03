@@ -5,24 +5,32 @@ import SearchBar from './component/SearchBar';
 
 import { usePostStore } from './store/postStore';
 
-const filterPosts = (posts, query) => {
-	if (!query) {
-		return posts
+const filterPosts = (posts, recherche, query_type) => {
+	if (!recherche || !query_type) {
+		return posts;
 	}
 
-	return posts.filter((post) => {
-		const postName = post.name;
-		return postName.includes(query);
+	const postsFiltered = posts.filter((post) => {
+		var postName = undefined;
+		if (query_type == 'titre') {
+			postName = post.title;
+		}
+		else {
+			postName = post.body;
+		}
+		return postName.includes(recherche);
 	});
-};
+
+	return postsFiltered;
+	};
 
 function App() {
 	const { posts, setPosts } = usePostStore();
-
 	const { search } = window.location;
-	const query = new URLSearchParams(search).get('s');
-	const filteredPosts = filterPosts(posts, query);
-
+	const recherche = new URLSearchParams(search).get('s');
+	const query_type = new URLSearchParams(search).get('type');
+	const filteredPosts = filterPosts(posts, recherche, query_type);
+		
 	useEffect(() => {
 		fetch('https://jsonplaceholder.typicode.com/posts')
 			.then((res) => res.json())
@@ -31,19 +39,17 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1><img src='/twitter.png' height="41" width="50"></img>Touité</h1>
+			<h1><a href='./'><img src='/twitter.png' height="41" width="50"></img>Touité</a></h1>
 			<SearchBar/>
-			<ul>
-				{filteredPosts.map(post => (<li key={post.id}>{post.name}</li>))}
-			</ul>
+			
 			<div className="card">
 				{posts.length > 0 &&
-					posts.map((post) => {
+					filteredPosts.map((post) => {
 						return (
 							<div className="article" key={post.id}>
 								<h2>{post.title}</h2>
 								<p>{post.body}</p>
-								<p>{post.userId}</p>
+								<p>{post.id}</p>
 								<Link to={`/articles/${post.id}`}>Consulter l'article</Link>
 							</div>
 						);
