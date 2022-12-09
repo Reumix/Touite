@@ -16,8 +16,8 @@ function Article() {
 		<div>
 			{post && (
 				<>
-					<h2>{post.title}</h2>
-					<p>{post.body}</p>
+					<h2>{post.titre}</h2>
+					<p>{post.description}</p>
 					<Link to={`/`}>retour à la liste</Link>
 				</>
 			)}

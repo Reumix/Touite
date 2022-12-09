@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAccountStore } from "../store/accountStore";
 
 const Connexion = () => {
-    const { account, setAccount } = useAccountStore();
+    //const { account, setAccount } = useAccountStore();
 
-    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json()).then((res) => setAccount(account))
-    })
+    // useEffect(() => {
+    //     fetch('https://jsonplaceholder.typicode.com/users').then((res) => res.json()).then((res) => setAccount(account))
+    // })
 
     return (
         <div className="connexion">

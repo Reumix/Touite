@@ -1,6 +1,7 @@
-import create from 'zustand';
+import create from "zustand";
 
 export const useAccountStore = create((set) => ({
-    account: [],
-    setAccount: (account) => set((state) => ({account: account})),
-}));
+    user: string,
+    password: string,
+    setUser: (inputUser, inputPassword) => set({user: inputUser, password: inputPassword}),
+}))

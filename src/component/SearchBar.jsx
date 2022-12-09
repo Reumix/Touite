@@ -1,7 +1,16 @@
-import React, {useState} from 'react'
-
+import React, {useState, useEffect} from 'react'
+import { useCategorieStore } from '../store/postCategorie';
 
 const SearchBar = () => {
+    
+    const { categorie, setCategorie } = useCategorieStore();
+    
+    useEffect(() => {
+		fetch("https://127.0.0.1:8000/api/categorie_apis.json")
+		.then((res_categorie) => res_categorie.json())
+		.then((res_categorie) => setCategorie(res_categorie));
+	})
+
     return (<form action='/' method='get'>
         <label htmlFor='header-search'>
             <span className='visually-hidden'>Search blog posts</span>
@@ -12,7 +21,22 @@ const SearchBar = () => {
             <option value='titre'>Dans le titre</option>
             <option value='body'>Dans l'article</option>
         </select>
+        <select name='categorie' id='categorie-select'>
+            <option value=''>Catégorie</option>
+            {categorie.map((item, i) => {
+                return (
+                    <option key={i} value={item.id}>{item.id} - {item.name}</option>
+                )
+            }, this)};
+        </select>
         <button type='submit'>Go</button>
+        {/* <div>
+            {categorie.map((item, i) => {
+                return (
+                    <button key={i} id='categorie'>{item.name}</button>
+                )
+            })}
+        </div> */}
     </form>)
 }
 
