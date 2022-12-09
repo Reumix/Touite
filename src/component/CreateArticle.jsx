@@ -24,8 +24,8 @@ const CreateArticle = () => {
                 titre: titreArticle,
                 description: descriptionArticle,
                 idAdministrateur: 0,
-                idCategorie: categorieSelected
-                //idCategorie: 1
+                //idCategorie: categorieSelected
+                idCategorie: 1
          })
         };
     
@@ -38,14 +38,14 @@ const CreateArticle = () => {
             <h4>{titreArticle} {descriptionArticle} {categorieSelected}</h4>
             <input type="text" id="newArticleTitle" placeholder="Titre de votre article" value={titreArticle} onChange={(event) => setTitreArticle(event.target.value)}/>
             <input type="text" id="newArticleDescription" placeholder="Corps de votre article" value={descriptionArticle} onChange={(event) => setDescriptionArticle(event.target.value)}/>
-            <select id='categorie-select' value={categorieSelected} onChange={(event) => setCategorieSelected(event.target.value)}>
+            {/* <select id='categorie-select' value={categorieSelected} onChange={(event) => setCategorieSelected(event.target.value)}>
                 <option value=''>Catégorie</option>
                 {categorie.map((item, i) => {
                     return (
                         <option key={i} value={item.id}>{item.id} - {item.name}</option>
                     )
                 })};
-            </select>
+            </select> */}
             <button type="submit">Go</button>
         </form>
     )
