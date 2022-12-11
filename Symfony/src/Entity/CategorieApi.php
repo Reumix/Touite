@@ -36,3 +36,4 @@ class CategorieApi
         return $this;
     }
 }
+?>

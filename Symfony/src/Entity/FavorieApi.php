@@ -51,3 +51,4 @@ class FavorieApi
         return $this;
     }
 }
+?>
