@@ -4,9 +4,7 @@
   line-height: 24px;
   font-weight: 400;
   background-color: #000000;
-
   color : #d6d9db;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,8 +36,6 @@ h1 {
 }
 
 button {
-  border-end-end-radius: 10px;
-  border-top-right-radius: 10px;
   height: 40px;
   border: 1px solid transparent;
   font-size: 1em;
@@ -48,9 +44,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -71,8 +70,6 @@ button:focus-visible {
 
 input {
   height: 35px;
-  border-start-start-radius: 10px;
-  border-bottom-left-radius: 10px;
 }
 
 select {
@@ -83,4 +80,18 @@ select {
   border-radius: 5px;
   margin-left: 5px;
   margin-top: 5px;
+}
+
+#left-drop, #header-search{
+  border-start-start-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#right-drop {
+  border-end-end-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#full-drop {
+  border-radius: 5px;
 }

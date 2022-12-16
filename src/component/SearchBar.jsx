@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
-import { useCategorieStore } from '../store/postCategorie';
+import { useCategorieStore } from '../store/categorieStore';
 
 const SearchBar = () => {
     
     const { categorie, setCategorie } = useCategorieStore();
     
     useEffect(() => {
-		fetch("https://127.0.0.1:8000/api/categorie_apis.json")
+		fetch("https://127.0.0.1:8000/api/categories.json")
 		.then((res_categorie) => res_categorie.json())
 		.then((res_categorie) => setCategorie(res_categorie));
 	})
@@ -29,7 +29,7 @@ const SearchBar = () => {
                 )
             }, this)};
         </select>
-        <button type='submit'>Go</button>
+        <button id="right-drop" type='submit'>Go</button>
         {/* <div>
             {categorie.map((item, i) => {
                 return (

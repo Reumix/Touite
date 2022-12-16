@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { useCategorieStore } from "../store/postCategorie";
+import { useCategorieStore } from "../store/categorieStore";
 
 const CreateArticle = () => {
     
@@ -10,7 +10,7 @@ const CreateArticle = () => {
     const { categorie, setCategorie } = useCategorieStore();
     
     useEffect(() => {
-		fetch("https://127.0.0.1:8000/api/categorie_apis.json")
+		fetch("https://127.0.0.1:8000/api/categories.json")
 		.then((res_categorie) => res_categorie.json())
 		.then((res_categorie) => setCategorie(res_categorie));
 	})
@@ -36,7 +36,7 @@ const CreateArticle = () => {
     return (
         <form onSubmit={submitArticle}>
             <h4>{titreArticle} {descriptionArticle} {categorieSelected}</h4>
-            <input type="text" id="newArticleTitle" placeholder="Titre de votre article" value={titreArticle} onChange={(event) => setTitreArticle(event.target.value)}/>
+            <input type="text" id="left-drop" placeholder="Titre de votre article" value={titreArticle} onChange={(event) => setTitreArticle(event.target.value)}/>
             <input type="text" id="newArticleDescription" placeholder="Corps de votre article" value={descriptionArticle} onChange={(event) => setDescriptionArticle(event.target.value)}/>
             {/* <select id='categorie-select' value={categorieSelected} onChange={(event) => setCategorieSelected(event.target.value)}>
                 <option value=''>Catégorie</option>
@@ -46,7 +46,7 @@ const CreateArticle = () => {
                     )
                 })};
             </select> */}
-            <button type="submit">Go</button>
+            <button id="right-drop" type="submit">Go</button>
         </form>
     )
 }

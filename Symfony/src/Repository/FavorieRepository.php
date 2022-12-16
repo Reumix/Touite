@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\FavorieApi;
+use App\Entity\Favorie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<FavorieApi>
+ * @extends ServiceEntityRepository<Favorie>
  *
- * @method FavorieApi|null find($id, $lockMode = null, $lockVersion = null)
- * @method FavorieApi|null findOneBy(array $criteria, array $orderBy = null)
- * @method FavorieApi[]    findAll()
- * @method FavorieApi[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Favorie|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Favorie|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Favorie[]    findAll()
+ * @method Favorie[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FavorieApiRepository extends ServiceEntityRepository
+class FavorieRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, FavorieApi::class);
+        parent::__construct($registry, Favorie::class);
     }
 
-    public function save(FavorieApi $entity, bool $flush = false): void
+    public function save(Favorie $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class FavorieApiRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(FavorieApi $entity, bool $flush = false): void
+    public function remove(Favorie $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class FavorieApiRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return FavorieApi[] Returns an array of FavorieApi objects
+//     * @return Favorie[] Returns an array of Favorie objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class FavorieApiRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?FavorieApi
+//    public function findOneBySomeField($value): ?Favorie
 //    {
 //        return $this->createQueryBuilder('f')
 //            ->andWhere('f.exampleField = :val')
@@ -64,4 +64,3 @@ class FavorieApiRepository extends ServiceEntityRepository
 //        ;
 //    }
 }
-?>
