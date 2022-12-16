@@ -95,3 +95,7 @@ select {
 #full-drop {
   border-radius: 5px;
 }
+
+#connexion {
+  justify-content: space-around;
+}

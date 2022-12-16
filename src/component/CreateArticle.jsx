@@ -13,7 +13,7 @@ const CreateArticle = () => {
 		fetch("https://127.0.0.1:8000/api/categories.json")
 		.then((res_categorie) => res_categorie.json())
 		.then((res_categorie) => setCategorie(res_categorie));
-	})
+	}, [])
 
     function submitArticle() {
 

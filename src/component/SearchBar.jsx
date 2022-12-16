@@ -12,9 +12,9 @@ const SearchBar = () => {
 	})
 
     return (<form action='/' method='get'>
-        <label htmlFor='header-search'>
+        {/* <label htmlFor='header-search'>
             <span className='visually-hidden'>Search blog posts</span>
-        </label>
+        </label> */}
         <input type='text' id='header-search' placeholder='Rechercher un mot' name='s'/>
         <select name='type' id='type-select'>
             <option value=''>Rechercher dans :</option>
